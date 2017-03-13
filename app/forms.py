@@ -3,10 +3,6 @@ from flask_wtf.file import FileAllowed, FileField
 from wtforms import StringField, PasswordField, RadioField, TextAreaField, FileField
 from wtforms.validators import InputRequired
 
-class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[InputRequired()])
-    password = PasswordField('Password', validators=[InputRequired()])
-
 class ProfileForm(FlaskForm):
     firstname = StringField('Firstname', validators=[InputRequired()]) 
     lastname = StringField('Lastname', validators=[InputRequired()])
