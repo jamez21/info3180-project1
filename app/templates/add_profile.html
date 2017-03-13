@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% include "header.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+{% endblock %}
+
+{% block main %}
+
+<h1 class="page-header">Create a User</h1>
+<p> Fill in this form to create a user profile.</p>
+<br>
+
+{% include 'flash_messages.html' %}
+
+
+<form action="{{ url_for('add_profile') }}" method="POST" enctype="multipart/form-data">
+    
+    
+    {{ form.csrf_token }}
+    
+    <div class="f_field">
+        <label class="f_label">Firstname </label><span>(Required)</span><br>
+        {{ form.firstname }}
+    </div>
+    
+    <div class="f_field">
+        <label class="f_label">Lastname </label><span>(Required)</span><br>
+        {{ form.lastname }}
+    </div>
+    
+    <div class="f_field">
+        <label class="f_label">Username </label><span>(Required)</span><br>
+        {{ form.username }}
+    </div>
+    
+    <div class="f_field">
+        <label class="f_label">Age</label><span>(Required)</span>
+        <p>Enter your age.</p>
+        {{ form.age }}
+    </div>
+    
+    <div class="f_field">
+        <label class="f_label">Biography </label><span>(Required)</span>
+        <p>Say something about yourself.</p>
+        {{ form.biography(cols="50", row="7") }}
+    </div>
+    
+    <div class="f_field">
+        <label class="f_label">Gender</label><span>(Required)</span>
+        <p>Select your gender.</p>
+        {{ form.gender }}
+    </div>
+    
+    <div class="form-group">
+        <label for="file">Picture Upload</label>
+        <p>Upload a picture of yourself.</p>
+        {{ form.image }}
+    </div>
+    
+    <br>
+    
+    <button type="submit" class="btn btn-primary active">Submit</button>
+    
+</form>
+
+{% endblock %}

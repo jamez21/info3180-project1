@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% include "header.html" %}
+
+{% block main %}
+
+<h1 class="page-header">User Listing</h1>
+
+{% include 'flash_messages.html' %}
+
+<ul>
+    {% for profile in profiles %}
+        <li>
+            <a href="/profile/{{ profile.userid }}">{{ profile.username }} {{ profile.userid }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

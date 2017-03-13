@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% include "header.html" %}
+
+
+{% block main %}
+<div>
+<h1 class="page-header">Profile</h1>
+{% for user_profile in profile %}
+    <table>
+        <tr>
+            <td style="padding: 50px">
+                <img src="{{ url_for('static', filename='images/' + user_profile.image) }}" height="200" width="200" />
+            </td>
+            <td style="border-left: solid; border-width: 1px; padding: 20px;">
+                <h3>{{ user_profile.firstname }} {{ user_profile.lastname }}</h3><hr>
+                <p>Profile Created On: {{ user_profile.created_on }} </p><hr>
+                <p><b>Username: </b> {{ user_profile.username }}</p>
+                <p><b>User ID: </b> {{ user_profile.userid }}</p>
+                <p><b>Age: </b> {{ user_profile.age }}</p>
+                <p><b>Gender: </b> {{ user_profile.gender }}</p>
+                <p>{{ user_profile.biography }}</p>
+            </td>
+        </tr>
+    </table>
+
+{% endfor %}
+</div>
+
+
+{% endblock %}
